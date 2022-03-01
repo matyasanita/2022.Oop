@@ -39,7 +39,7 @@ public class BankAccount {
 
     @Override
     public String toString(){
-        return "Account: " + this.accountNumber + " \nbalance: " + this.balance;
+        return "Account: " + this.accountNumber + " \nbalance: " + this.balance + "\n";
     }
 
 
