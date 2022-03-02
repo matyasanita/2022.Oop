@@ -1,7 +1,9 @@
 package extra1;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
+import java.util.Scanner;
 
 
 enum Color{
@@ -25,6 +27,10 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         Car car = new Car("Ford", "Fiesta", 2, true, 2002);
         System.out.println(car);
+
+
+        Scanner sc = new Scanner(new File("input.txt"));
+        System.out.println(sc.nextLine());
 
         String[] input = {"Opel Agila 2008", "Suzuki Vitara 1989", "Ford Focus 2009"};
 
