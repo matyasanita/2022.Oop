@@ -9,7 +9,7 @@ public class Customer {
     private String lastName;
 
     private int numAccounts;
-    private BankAccount account[] = new BankAccount[ MAX_ACCOUNTS];
+    private BankAccount accounts[] = new BankAccount[ MAX_ACCOUNTS];
 
     //contructor
 
@@ -23,10 +23,10 @@ public class Customer {
     public BankAccount getAccount(String accountNumber){
         for( int i=0; i < numAccounts ; i++){
 
-            String accountOnIndex = account[i].getAccountNumber();
+            String accountOnIndex = accounts[i].getAccountNumber();
 
             if (accountOnIndex.equals(accountNumber))
-                return account[i];
+                return accounts[i];
         }
 
         //if not found
@@ -50,7 +50,7 @@ public class Customer {
     public void addAccount(BankAccount account){
         if (numAccounts < MAX_ACCOUNTS){
             this.numAccounts ++;
-            this.account[numAccounts-1] = account;
+            this.accounts[numAccounts-1] = account;
         }
         else{
             System.out.println("You have reached the account number limit!\n");
@@ -64,33 +64,31 @@ public class Customer {
     public void closeAccount(String accountNumber){
         int i ;
         for( i = 0; i < numAccounts ; i++){
-            String accountOnIndex = account[i].getAccountNumber();
+            String accountOnIndex = accounts[i].getAccountNumber();
             if (accountOnIndex.equals(accountNumber))
             {
                 int j = i;
                 while (j + 1 < numAccounts){
-                    account[j] = account[j+1];
+                    accounts[j] = accounts[j+1];
                     j++;
                 }
                 numAccounts --;
+                System.out.println(accountOnIndex + " closed\n");
+                return;
             }
         }
         if ( i == numAccounts) System.out.println(accountNumber + " does not exist!");
 
     }
 
-    @Override public String toString(){
-        String res = "First name: " + firstName + "\nLast name: " + lastName + "\n";
-        res += "Accounts: \n";
-        if ( numAccounts == 0 ) res += "No accounts.";
-        else {
-            for( int i=0 ; i<numAccounts ; i++){
-                String accountOnIndex = account[i].getAccountNumber();
-                res += accountOnIndex + "\n";
-            }
+    @Override
+    public String toString() {
+        StringBuffer result = new StringBuffer();
+        result.append(firstName + ' ' + lastName + " accounts:\n");
+        for(int i=0; i<numAccounts; ++i){
+            result.append( "\t" + accounts[i].toString() +"\n");
         }
-
-        return res;
+        return result.toString();
     }
 
 }

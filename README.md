@@ -1,6 +1,6 @@
 # 2022.Oop
 
-- Neved, szak
+- Mátyás Anita , Informatika I.
 
 
 ## Score:
