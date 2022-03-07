@@ -15,6 +15,12 @@ public class Student {
         this.major = major;
     }
 
+    //getters
+
+    public Major getMajor(){
+        return major;
+    }
+
     @Override public String toString() {
         StringBuffer result = new StringBuffer();
         result.append(firstName + " " + lastName + " (" + neptunCode + ")");

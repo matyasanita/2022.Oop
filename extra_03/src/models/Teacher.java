@@ -19,7 +19,11 @@ public class Teacher {
         currentNumberOfTeachers ++;
         this.teacherID = currentNumberOfTeachers;
     }
+    //getter
 
+    public Degree getDegree(){
+        return degree;
+    }
     @Override
     public String toString() {
         return  firstName + " " + lastName + " - " + degree + " from " +

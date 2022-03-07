@@ -21,14 +21,27 @@ public class Course {
         this.enrolledStudents = new Student[MAX_STUDENTS];
     }
 
+
     //getters
 
     public String getCourseID (){
         return courseID;
     }
 
-    public Student[] getEnrolledStudents (Course course){
-        return course.enrolledStudents;
+    public Student[] getEnrolledStudents (){
+        return enrolledStudents;
+    }
+
+    public int getNumberOfEnrolledStudents() {
+        return numberOfEnrolledStudents;
+    }
+
+    public Teacher getTeacher(){
+        return teacher;
+    }
+
+    public DayOfWeek getDayOfCourse() {
+        return dayOfCourse;
     }
 
     public void AssignTeacher(Teacher teacher){
@@ -37,13 +50,25 @@ public class Course {
 
     public void EnrollStudents(Student student){
         if (numberOfEnrolledStudents < MAX_STUDENTS){
-            this.enrolledStudents[numberOfEnrolledStudents] = student;
+            enrolledStudents[numberOfEnrolledStudents] = student;
             numberOfEnrolledStudents ++;
         }
     }
 
     public void CancelEnrollmentOfStudents(String neptunCode){
-
+        int studentIndex = 0;
+        while (studentIndex < numberOfEnrolledStudents && enrolledStudents[studentIndex].neptunCode != neptunCode ){
+            studentIndex ++;
+        }
+        if (studentIndex < numberOfEnrolledStudents){
+            while (studentIndex < numberOfEnrolledStudents - 1){
+                enrolledStudents[studentIndex] = enrolledStudents[studentIndex + 1];
+                studentIndex ++;
+            }
+            numberOfEnrolledStudents --;
+        }
+        else
+            System.out.println("Student is not enrolled in the course!");
     }
 
     @Override
