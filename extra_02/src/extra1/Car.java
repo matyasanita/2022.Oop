@@ -1,6 +1,7 @@
 package extra1;
 
 public class Car {
+    //Ami biztosan nem változik legyen final
     private String carType;
     private int numberOfKilometers;
     private final int yearOfManufacture;
@@ -49,7 +50,7 @@ public class Car {
     }
     public String getCarBrand(){
         return getCarBrand();
-    }
+    } //Vigyázat ez végtelen ciklus
     public int getYearOfManufacture(){
         return yearOfManufacture;
     }
@@ -84,21 +85,12 @@ public class Car {
             this.maxPassangers = 2;
 
 
-        switch (fuelValue){
-            case 0:
-                this.fuelType = FuelType.DIESEL;
-                break;
-            case 1:
-                this.fuelType = FuelType.PETROL;
-                break;
-            case 2:
-                this.fuelType = FuelType.GAS;
-                break;
-            case 3:
-                this.fuelType = FuelType.ELECTRIC;
-                break;
-            default:
-                this.fuelType = FuelType.HYBRID;
+        switch (fuelValue) {
+            case 0 -> this.fuelType = FuelType.DIESEL;
+            case 1 -> this.fuelType = FuelType.PETROL;
+            case 2 -> this.fuelType = FuelType.GAS;
+            case 3 -> this.fuelType = FuelType.ELECTRIC;
+            default -> this.fuelType = FuelType.HYBRID;
         }
 
         if(carBrand.charAt(0) == 'R')

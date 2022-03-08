@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Random;
 import java.util.Scanner;
 
-
+//Ezek inkább legyenek egy enums class-ben vagy külön fájlban
 enum Color{
     BLUE,
     BLACK,
@@ -64,7 +64,7 @@ public class Main {
                         System.out.println("Slow down or I'll give you a ticket! *Siren noises*");
                 }
 
-                if (cars[j].getNumberOfKilometers() == 0 && firstCar == true){
+                if (cars[j].getNumberOfKilometers() == 0 && firstCar){
                     System.out.println("The first car was:" + j);
                     firstCar = false;
                 }
