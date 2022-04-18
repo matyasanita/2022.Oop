@@ -8,6 +8,7 @@ import utils.Util;
 
 import java.util.ArrayList;
 
+
 public abstract class Pet implements IPatient {
 
     public static int numPets = 0;
@@ -34,8 +35,8 @@ public abstract class Pet implements IPatient {
     //methods
     public abstract String speak();
     public void unexpectedIllnessOccured(){
-        int randomIllness = Util.random.nextInt(Util.getNumOfDiseasesByPet(PetType.Dog))-1);
-        this.diseases.add(Util.getDiseasesByPetType(PetType.Dog)).get(randomIllness).getDisease());
+        int randomIllness = Util.random.nextInt(getNumOfDiseasesByPet(PetType.Dog)-1);
+        this.diseases.add(getDiseasesByPetType(PetType.Dog)).get(randomIllness).getDisease();
     }
 
     public void checkHealthStatus(){
@@ -57,11 +58,11 @@ public abstract class Pet implements IPatient {
         healthy = true;
     }
 
+    //getters
+
     public static int getNumPets(){
         return numPets;
     }
-
-    //getters
 
     protected String getDiseases() {
        if ( healthy == false ){
