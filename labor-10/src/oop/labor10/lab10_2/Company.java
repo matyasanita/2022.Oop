@@ -34,14 +34,35 @@ public class Company {
             String line;
             while(sc.hasNextLine()){
                 line = sc.nextLine();
-                String elements[] = line.split(" ");
-                String firstName = elements[0];
-                String lastName = elements[1];
-                int salary = Integer.parseInt(elements[2]);
-                int year = Integer.parseInt(elements[3]);
-                int month = Integer.parseInt(elements[4]);
-                int day = Integer.parseInt((elements[5]));
-                hire(new Employee(firstName,lastName,salary,new MyDate(year,month,day)));
+                String elements[] = line.split(",");
+                if (line.isEmpty()){
+                    continue;
+                }
+
+                int length = elements.length;
+
+                String firstName = elements[1].trim();
+                String lastName = elements[0].trim();
+                int salary = Integer.parseInt(elements[2].trim());
+                int year = Integer.parseInt(elements[3].trim());
+                int month = Integer.parseInt(elements[4].trim());
+                int day = Integer.parseInt((elements[5]).trim());
+
+                //employee
+                if (elements.length == 6){
+                    hire(new Employee(firstName,lastName,salary,new MyDate(year,month,day)));
+                }
+
+                //manager
+                else if (elements.length == 7)
+                {
+                    String department = elements[6].trim();
+                    hire(new Manager(firstName,lastName,salary,new MyDate(year,month,day),department));
+                }
+                else{
+                    System.out.println("Incorrect input file\n");
+                }
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -51,6 +72,7 @@ public class Company {
     public void sortByComparator(Comparator<Employee> employeeComparator){
         employee.sort(employeeComparator);
     }
+
 
     public void printAll(PrintStream p){
         for(Employee e : employee){
