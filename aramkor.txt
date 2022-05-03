@@ -1,0 +1,4 @@
+Ellenallas 231 82.1
+Kondenzator 94 927
+Kondenzator 823 23.1
+Tranzisztor 324 32s33

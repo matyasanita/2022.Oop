@@ -81,6 +81,14 @@ public class Company {
     }
 
     public void fire(int ID){
-
+        boolean found = false;
+        int i = 0;
+        while (!found){
+            if (employee.get(i).getID() == ID){
+                employee.remove(i);
+                found = true;
+            }
+            i++;
+        }
     }
 }
