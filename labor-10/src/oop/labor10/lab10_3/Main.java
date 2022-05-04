@@ -17,6 +17,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Szép munka!
         completeRow("data1000.txt", "update1000.txt");
         completeRow("data1000.txt", "update1000000.txt");
         completeRow("data1000000.txt", "update1000.txt");

@@ -39,7 +39,7 @@ public class Company {
                     continue;
                 }
 
-                int length = elements.length;
+                int length = elements.length; //felesleges
 
                 String firstName = elements[1].trim();
                 String lastName = elements[0].trim();
@@ -83,6 +83,7 @@ public class Company {
     public void fire(int ID){
         boolean found = false;
         int i = 0;
+        //itt lehetne egy removeIf-et használni
         while (!found){
             if (employee.get(i).getID() == ID){
                 employee.remove(i);

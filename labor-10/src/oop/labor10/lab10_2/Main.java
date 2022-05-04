@@ -25,6 +25,7 @@ public class Main {
         System.out.println("\n****************************\n");
 
         System.out.println("Sort by salary:");
+        //Ugyes!
         company.sortByComparator(Comparator.comparing(Employee::getSalary,Comparator.reverseOrder()));
         company.printAll(System.out);
         System.out.println("\n****************************\n");
