@@ -28,20 +28,16 @@ public class DateUtil {
             if (month > 0 && month <= 12){
                 if (day > 0 && day < 32){
                     //feb
-                    if (month == 2){
-                        if (leapYear(year) && day != 29)
+                    if (month == 2) {
+                        if (leapYear(year) && day > 29)
                             return false;
-                        else if (!leapYear(year) && day != 28)
+                        else if (!leapYear(year) && day > 28)
                             return false;
                     }
-                    //jan, march, may, july, august, october, november, december
-                    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 ||month == 12 )
-                        if (day != 31)
-                            return false;
 
                     //april, june, september, november
                     if (month == 4 || month == 6 || month == 9 || month == 11 )
-                        if (day != 30)
+                        if (day == 30)
                             return false;
                 }
                 else

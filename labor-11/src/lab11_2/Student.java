@@ -19,6 +19,10 @@ public class Student {
 
     //getters
 
+    public int getCredits() {
+        return credits;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -29,12 +33,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "neptunCode='" + neptunCode + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", credits=" + credits +
-                ", birthDate=" + birthDate +
-                '}';
+        return neptunCode + "," + firstName + "," + lastName + "," + credits + "," + birthDate + "\n";
     }
 }

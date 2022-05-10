@@ -7,7 +7,7 @@ public class MyDate implements Comparable<MyDate> {
 
     public MyDate(int year, int month, int day) throws InvalidDateException{
         if (!DateUtil.isValidDate(year,month,day)){
-            throw new InvalidDateException("INVALID DATE EXCEPTION");
+            throw new InvalidDateException();
         }
         this.year = year;
         this.month = month;
